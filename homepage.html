@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lavender Swirl — Oppdrett med Omsorg</title>
+  <meta name="description" content="Lavender Swirl er et norsk oppdrett som spesialiserer seg på Roborovski dverghamstere, chinchillaer og Bichon Frisé. Kjærlighet i hvert lille potetrykk.">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="homepage.css">
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    @tailwind base;
+  </style>
+</head>
+<body>
+
+  <!-- ═══ Navbar ═══ -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="navbar-logo">
+      <img src="assets/logo.png" alt="Lavender Swirl">
+    </a>
+    <ul class="navbar-links">
+      <li><a href="#raser">Våre raser</a></li>
+      <li><a href="#om-oss">Om oss</a></li>
+      <li><a href="#galleri">Galleri</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- ═══ Hero ═══ -->
+  <section class="hero">
+    <div class="hero-image-wrapper">
+      <img src="assets/cute-animals.webp" alt="Våre kjæledyr i lavendelåker" id="hero-img">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag reveal">Norsk oppdrett · Siden 2019</p>
+      <h1 class="hero-title reveal">Kjærlighet i hvert<br>lille <em>potetrykk</em></h1>
+      <p class="hero-subtitle reveal">Vi er Lavender Swirl — et lite, dedikert oppdrett i hjertet av Norge, hvor hver eneste av våre dyr får den omsorgen de fortjener.</p>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══ Intro ═══ -->
+  <section class="intro">
+    <div class="intro-left">
+      <div class="intro-number reveal">03</div>
+      <h2 class="intro-heading reveal">
+        Tre unike raser,<br>
+        én felles <em>filosofi</em>
+      </h2>
+    </div>
+    <div class="intro-right">
+      <div class="divider reveal"></div>
+      <p class="reveal">Hos Lavender Swirl handler alt om kvalitet fremfor kvantitet. Vi fokuserer på helse, temperament og sosialisering — slik at hvert dyr som forlater oss er trygt, friskt og klar for sitt nye hjem.</p>
+      <p class="reveal">Vårt oppdrett er bygget på en dyp respekt for naturen og dyrene vi arbeider med. Vi følger strenge retningslinjer og samarbeider tett med veterinærer for å sikre de beste forholdene.</p>
+    </div>
+  </section>
+
+  <!-- ═══ Breeds ═══ -->
+  <section class="breeds" id="raser">
+    <div class="breeds-header">
+      <h2 class="reveal">Våre <em>raser</em></h2>
+    </div>
+
+    <!-- Roborovski -->
+    <div class="breed-row">
+      <div class="breed-image reveal-scale">
+        <img src="assets/roborovski-hamster.webp" alt="Roborovski dverghamster">
+      </div>
+      <div class="breed-info">
+        <span class="breed-label reveal">Dverghamster</span>
+        <h3 class="breed-name reveal">Roborovski<br><em>Dverghamster</em></h3>
+        <p class="breed-desc reveal">Verdens minste hamsterrase — full av energi og sjarm. Våre roborovski-hamstere er håndtamme fra ung alder og oppdratt med fokus på helse og et godt gemytt. Perfekte små følgesvenner for deg som ønsker et aktivt og fascinerende kjæledyr.</p>
+        <div class="breed-traits reveal">
+          <span class="breed-trait">Liten & aktiv</span>
+          <span class="breed-trait">Sosial</span>
+          <span class="breed-trait">Nysgjerrig</span>
+          <span class="breed-trait">Lang levetid</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chinchilla -->
+    <div class="breed-row">
+      <div class="breed-image reveal-scale">
+        <img src="assets/chinchilla.webp" alt="Chinchilla">
+      </div>
+      <div class="breed-info">
+        <span class="breed-label reveal">Gnager</span>
+        <h3 class="breed-name reveal">Chinchilla</h3>
+        <p class="breed-desc reveal">Med sin utrolig myke pels og lekne personlighet er chinchillaen et helt spesielt kjæledyr. Våre chinchillaer vokser opp i romslige miljøer med mye stimulering, og vi legger stor vekt på genetisk mangfold og helsetesting.</p>
+        <div class="breed-traits reveal">
+          <span class="breed-trait">Myk pels</span>
+          <span class="breed-trait">Leken</span>
+          <span class="breed-trait">Intelligent</span>
+          <span class="breed-trait">15+ års levetid</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bichon Frisé -->
+    <div class="breed-row">
+      <div class="breed-image reveal-scale">
+        <img src="assets/dog.webp" alt="Bichon Frisé">
+      </div>
+      <div class="breed-info">
+        <span class="breed-label reveal">Hund</span>
+        <h3 class="breed-name reveal">Bichon<br><em>Frisé</em></h3>
+        <p class="breed-desc reveal">Den sjarmerende Bichon Frisé er kjent for sitt glade vesen og allergivennlige pels. Våre valper vokser opp i et hjemmemiljø med masse kjærlighet, tidlig sosialisering og grundig helsesjekk. En perfekt familiehund.</p>
+        <div class="breed-traits reveal">
+          <span class="breed-trait">Allergivennlig</span>
+          <span class="breed-trait">Familievennlig</span>
+          <span class="breed-trait">Glad & lojal</span>
+          <span class="breed-trait">Liten størrelse</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Marquee ═══ -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item"><em>Roborovski</em> <span class="marquee-dot"></span> Chinchilla <span class="marquee-dot"></span> <em>Bichon Frisé</em> <span class="marquee-dot"></span> Omsorg <span class="marquee-dot"></span> <em>Kvalitet</em> <span class="marquee-dot"></span> Norge <span class="marquee-dot"></span></span>
+      <span class="marquee-item"><em>Roborovski</em> <span class="marquee-dot"></span> Chinchilla <span class="marquee-dot"></span> <em>Bichon Frisé</em> <span class="marquee-dot"></span> Omsorg <span class="marquee-dot"></span> <em>Kvalitet</em> <span class="marquee-dot"></span> Norge <span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ═══ About ═══ -->
+  <section class="about" id="om-oss">
+    <div class="about-image reveal-left">
+      <img src="assets/portrait.png" alt="Grunnleggerne av Lavender Swirl">
+    </div>
+    <div class="about-content">
+      <span class="about-label reveal">Om oss</span>
+      <h2 class="about-heading reveal">
+        Bygget på <em>lidenskap</em><br>
+        og respekt for dyr
+      </h2>
+      <div class="about-text">
+        <p class="reveal">Lavender Swirl ble grunnlagt av to unge dyreentusiaster med en felles drøm: å drive et oppdrett der dyrevelferd alltid kommer først. Vi bor midt i den norske naturen, omgitt av frisk luft og rolige omgivelser — det perfekte miljøet for våre dyr.</p>
+        <p class="reveal">Hvert dyr hos oss har sitt eget navn, sin egen personlighet, og får individuell oppfølging. Vi tror at et godt oppdrett handler om mer enn genetikk — det handler om kjærlighet, tålmodighet og en genuin omsorg for hvert lille liv.</p>
+        <p class="reveal">Vi er stolte medlemmer av Norsk Kennel Klub og følger alle retningslinjer for ansvarlig oppdrett. Velkommen til å bli kjent med oss og våre fantastiske dyr.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Gallery ═══ -->
+  <section class="gallery" id="galleri">
+    <div class="gallery-header">
+      <h2 class="reveal">Møt våre <em>kjæledyr</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall reveal-scale">
+        <img src="assets/tito.png" alt="Tito — Bichon Frisé">
+        <div class="gallery-item-overlay">
+          <span>Tito</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal-scale">
+        <img src="assets/nibbles.png" alt="Nibbles — Roborovski hamster">
+        <div class="gallery-item-overlay">
+          <span>Nibbles</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal-scale">
+        <img src="assets/chinchilla.webp" alt="Chinchilla i lavendeleng">
+        <div class="gallery-item-overlay">
+          <span>Chinchilla</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal-scale">
+        <img src="assets/hænki.png" alt="Hænki">
+        <div class="gallery-item-overlay">
+          <span>Hænki</span>
+        </div>
+      </div>
+      <div class="gallery-item reveal-scale">
+        <img src="assets/assets_task_01k1bpxtzrfj5baen83xvf0qdj_1753813610_img_1.webp" alt="Roborovski hamster">
+        <div class="gallery-item-overlay">
+          <span>Roborovski</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Contact ═══ -->
+  <section class="contact" id="kontakt">
+    <div class="contact-inner">
+      <span class="contact-label reveal">Ta kontakt</span>
+      <h2 class="contact-heading reveal">
+        Interessert i å<br>bli en del av <em>familien?</em>
+      </h2>
+      <p class="contact-text reveal">
+        Vi tar gjerne imot henvendelser fra potensielle nye eiere. Fortell oss litt om deg selv og hvilken rase du er interessert i, så tar vi en hyggelig prat.
+      </p>
+      <a href="mailto:hei@lavenderswirl.no" class="contact-btn reveal">
+        <span>Send oss en melding</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </a>
+      <div class="contact-details reveal">
+        <div class="contact-detail">
+          <div class="contact-detail-label">E-post</div>
+          <div class="contact-detail-value"><a href="mailto:hei@lavenderswirl.no">hei@lavenderswirl.no</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">Telefon</div>
+          <div class="contact-detail-value"><a href="tel:+4798765432">+47 987 654 32</a></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-label">Sted</div>
+          <div class="contact-detail-value">Trøndelag, Norge</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="footer">
+    <div class="footer-left">
+      &copy; 2026 Lavender Swirl. Alle rettigheter reservert.
+    </div>
+    <div class="footer-right">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">Personvern</a>
+    </div>
+  </footer>
+
+  <!-- ═══ Scripts ═══ -->
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ── Navbar scroll effect ──
+    ScrollTrigger.create({
+      start: 'top -80',
+      onUpdate: (self) => {
+        document.getElementById('navbar').classList.toggle('scrolled', self.progress > 0);
+      }
+    });
+
+    // ── Hero parallax ──
+    gsap.to('#hero-img', {
+      yPercent: 15,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+
+    // ── Hero content staggered entrance ──
+    gsap.fromTo('.hero-content .reveal',
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1, y: 0,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: 'power3.out',
+        delay: 0.3
+      }
+    );
+
+    // ── Generic reveal animations ──
+    gsap.utils.toArray('.reveal').forEach((el) => {
+      if (el.closest('.hero-content')) return; // skip hero (handled above)
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            once: true
+          }
+        }
+      );
+    });
+
+    // ── Reveal left ──
+    gsap.utils.toArray('.reveal-left').forEach((el) => {
+      gsap.fromTo(el,
+        { opacity: 0, x: -50 },
+        {
+          opacity: 1, x: 0,
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            once: true
+          }
+        }
+      );
+    });
+
+    // ── Reveal right ──
+    gsap.utils.toArray('.reveal-right').forEach((el) => {
+      gsap.fromTo(el,
+        { opacity: 0, x: 50 },
+        {
+          opacity: 1, x: 0,
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            once: true
+          }
+        }
+      );
+    });
+
+    // ── Reveal scale (images) ──
+    gsap.utils.toArray('.reveal-scale').forEach((el) => {
+      gsap.fromTo(el,
+        { opacity: 0, scale: 0.92 },
+        {
+          opacity: 1, scale: 1,
+          duration: 1.4,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            once: true
+          }
+        }
+      );
+    });
+
+    // ── Breed image parallax ──
+    gsap.utils.toArray('.breed-image img').forEach((img) => {
+      gsap.fromTo(img,
+        { yPercent: -5 },
+        {
+          yPercent: 5,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: img.parentElement,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
+          }
+        }
+      );
+    });
+
+    // ── About image frame animation ──
+    gsap.fromTo('.about-image::before',
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: '.about-image',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // ── Gallery items stagger ──
+    ScrollTrigger.batch('.gallery-item', {
+      start: 'top 90%',
+      once: true,
+      onEnter: (batch) => {
+        gsap.fromTo(batch,
+          { opacity: 0, scale: 0.9, y: 30 },
+          {
+            opacity: 1, scale: 1, y: 0,
+            duration: 1,
+            stagger: 0.15,
+            ease: 'power3.out'
+          }
+        );
+      }
+    });
+
+    // ── Smooth scroll for nav links ──
+    document.querySelectorAll('.navbar-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          gsap.to(window, {
+            scrollTo: { y: target, offsetY: 80 },
+            duration: 1.2,
+            ease: 'power3.inOut'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
