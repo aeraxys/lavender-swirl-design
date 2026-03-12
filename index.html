@@ -27,7 +27,20 @@
       <li><a href="#galleri">Galleri</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Meny">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- ═══ Mobile Menu ═══ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#raser" class="mobile-menu-link">Våre raser</a>
+    <a href="#om-oss" class="mobile-menu-link">Om oss</a>
+    <a href="#galleri" class="mobile-menu-link">Galleri</a>
+    <a href="#kontakt" class="mobile-menu-link">Kontakt</a>
+  </div>
 
   <!-- ═══ Hero ═══ -->
   <section class="hero">
@@ -387,17 +400,38 @@
       }
     });
 
-    // ── Smooth scroll for nav links ──
+    // ── Mobile menu ──
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        menuToggle.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 300);
+        }
+      });
+    });
+
+    // ── Smooth scroll for desktop nav links ──
     document.querySelectorAll('.navbar-links a').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute('href'));
         if (target) {
-          gsap.to(window, {
-            scrollTo: { y: target, offsetY: 80 },
-            duration: 1.2,
-            ease: 'power3.inOut'
-          });
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
