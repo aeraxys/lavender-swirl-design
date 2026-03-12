@@ -7,243 +7,261 @@
   <meta name="description" content="Lavender Swirl er et norsk oppdrett som spesialiserer seg på Roborovski dverghamstere, chinchillaer og Bichon Frisé. Kjærlighet i hvert lille potetrykk.">
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script type="module" src="https://esm.sh/@tailwindcss/browser@4"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <style>
-    @tailwind base;
+  <style type="text/tailwindcss">
+    @import "tailwindcss";
+
+    @theme {
+      --color-lavender-deep: #5B4A7A;
+      --color-lavender-mid: #8B7AAF;
+      --color-lavender-soft: #C4B5DB;
+      --color-lavender-pale: #E8E0F0;
+      --color-lavender-whisper: #F3EFF8;
+      --color-cream: #FAF8F5;
+      --color-cream-warm: #F5F0EA;
+      --color-ink: #2A2235;
+      --color-ink-light: #6B6178;
+      --color-sage: #A8B5A0;
+      --color-rose: #D4A0A0;
+
+      --font-display: 'Cormorant Garamond', serif;
+      --font-editorial: 'Libre Caslon Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
   </style>
 </head>
-<body>
+<body class="font-body bg-cream text-ink overflow-x-hidden antialiased">
 
   <!-- ═══ Navbar ═══ -->
-  <nav class="navbar" id="navbar">
-    <a href="#" class="navbar-logo">
-      <img src="assets/logo.png" alt="Lavender Swirl">
+  <nav class="navbar fixed top-0 inset-x-0 z-100 px-5 py-4 md:px-12 md:py-6 flex justify-end items-center transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]" id="navbar">
+    <a href="#" class="navbar-logo opacity-0 -translate-y-2 pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+      <img src="assets/logo.png" alt="Lavender Swirl" class="h-10 transition-[height] duration-500">
     </a>
-    <ul class="navbar-links">
-      <li><a href="#raser">Våre raser</a></li>
-      <li><a href="#om-oss">Om oss</a></li>
-      <li><a href="#galleri">Galleri</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
+    <ul class="navbar-links hidden md:flex gap-10 list-none">
+      <li><a href="#raser" class="no-underline text-white/90 text-[0.85rem] font-normal tracking-[0.12em] uppercase relative pb-0.5 [text-shadow:0_1px_6px_rgba(0,0,0,0.2)] transition-[color,text-shadow] duration-500">Våre raser</a></li>
+      <li><a href="#om-oss" class="no-underline text-white/90 text-[0.85rem] font-normal tracking-[0.12em] uppercase relative pb-0.5 [text-shadow:0_1px_6px_rgba(0,0,0,0.2)] transition-[color,text-shadow] duration-500">Om oss</a></li>
+      <li><a href="#galleri" class="no-underline text-white/90 text-[0.85rem] font-normal tracking-[0.12em] uppercase relative pb-0.5 [text-shadow:0_1px_6px_rgba(0,0,0,0.2)] transition-[color,text-shadow] duration-500">Galleri</a></li>
+      <li><a href="#kontakt" class="no-underline text-white/90 text-[0.85rem] font-normal tracking-[0.12em] uppercase relative pb-0.5 [text-shadow:0_1px_6px_rgba(0,0,0,0.2)] transition-[color,text-shadow] duration-500">Kontakt</a></li>
     </ul>
-    <button class="menu-toggle" id="menuToggle" aria-label="Meny">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="menu-toggle block md:hidden bg-transparent border-none cursor-pointer p-2 z-110" id="menuToggle" aria-label="Meny">
+      <span class="block w-6 h-[1.5px] bg-white shadow-[0_1px_4px_rgba(0,0,0,0.15)] transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] origin-center"></span>
+      <span class="block w-6 h-[1.5px] bg-white shadow-[0_1px_4px_rgba(0,0,0,0.15)] transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] origin-center mt-[6px]"></span>
+      <span class="block w-6 h-[1.5px] bg-white shadow-[0_1px_4px_rgba(0,0,0,0.15)] transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] origin-center mt-[6px]"></span>
     </button>
   </nav>
 
   <!-- ═══ Mobile Menu ═══ -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#raser" class="mobile-menu-link">Våre raser</a>
-    <a href="#om-oss" class="mobile-menu-link">Om oss</a>
-    <a href="#galleri" class="mobile-menu-link">Galleri</a>
-    <a href="#kontakt" class="mobile-menu-link">Kontakt</a>
+  <div class="mobile-menu fixed inset-0 z-99 bg-cream/[0.97] backdrop-blur-[30px] flex-col justify-center items-center gap-10 opacity-0 pointer-events-none transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hidden md:hidden" id="mobileMenu">
+    <a href="#raser" class="mobile-menu-link font-display text-[2rem] font-normal text-ink no-underline tracking-[0.02em] transition-colors duration-300 hover:text-lavender-deep">Våre raser</a>
+    <a href="#om-oss" class="mobile-menu-link font-display text-[2rem] font-normal text-ink no-underline tracking-[0.02em] transition-colors duration-300 hover:text-lavender-deep">Om oss</a>
+    <a href="#galleri" class="mobile-menu-link font-display text-[2rem] font-normal text-ink no-underline tracking-[0.02em] transition-colors duration-300 hover:text-lavender-deep">Galleri</a>
+    <a href="#kontakt" class="mobile-menu-link font-display text-[2rem] font-normal text-ink no-underline tracking-[0.02em] transition-colors duration-300 hover:text-lavender-deep">Kontakt</a>
   </div>
 
   <!-- ═══ Hero ═══ -->
-  <section class="hero">
-    <div class="hero-image-wrapper">
-      <img src="assets/cute-animals.webp" alt="Våre kjæledyr i lavendelåker" id="hero-img">
-      <div class="hero-overlay"></div>
+  <section class="hero relative h-screen min-h-[700px] flex items-end overflow-hidden max-md:h-auto max-md:min-h-0 max-md:flex-col max-md:items-stretch">
+    <div class="hero-image-wrapper absolute inset-0 overflow-hidden max-md:relative max-md:h-[45vh] max-md:min-h-[260px] max-md:max-h-[380px]">
+      <img src="assets/cute-animals.webp" alt="Våre kjæledyr i lavendelåker" id="hero-img" class="w-full h-[115%] object-cover object-[center_30%] will-change-transform max-md:h-full max-md:object-[center_35%]">
+      <div class="hero-overlay absolute inset-0"></div>
     </div>
-    <div class="hero-content">
-      <p class="hero-tag reveal">Norsk oppdrett · Siden 2025</p>
-      <h1 class="hero-title reveal">Kjærlighet i hvert<br>lille <em>potetrykk</em></h1>
-      <p class="hero-subtitle reveal">Vi er Lavender Swirl — et lite, dedikert oppdrett i hjertet av Norge, hvor hver eneste av våre dyr får den omsorgen de fortjener.</p>
+    <div class="hero-content relative z-2 px-12 pb-20 max-w-[900px] max-md:px-5 max-md:pb-10 max-md:-mt-12">
+      <p class="hero-tag text-[0.75rem] tracking-[0.25em] uppercase text-lavender-mid font-medium mb-6 max-md:text-[0.65rem] max-md:mb-4 reveal">Norsk oppdrett · Siden 2025</p>
+      <h1 class="font-display text-[clamp(3rem,6vw,5.5rem)] font-light leading-[1.05] text-ink mb-6 max-md:text-[clamp(2.2rem,9vw,3.5rem)] max-md:mb-4 reveal">Kjærlighet i hvert<br>lille <em class="italic text-lavender-deep">potetrykk</em></h1>
+      <p class="text-[1.05rem] text-ink-light max-w-[480px] leading-[1.7] font-light max-md:text-[0.9rem] max-md:leading-[1.65] reveal">Vi er Lavender Swirl — et lite, dedikert oppdrett i hjertet av Norge, hvor hver eneste av våre dyr får den omsorgen de fortjener.</p>
     </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
+    <div class="hero-scroll absolute bottom-8 right-12 z-2 flex flex-col items-center gap-2 max-md:hidden">
+      <span class="text-[0.65rem] tracking-[0.2em] uppercase text-lavender-mid [writing-mode:vertical-rl]">Scroll</span>
+      <div class="scroll-line w-px h-[60px] bg-lavender-soft relative overflow-hidden"></div>
     </div>
   </section>
 
   <!-- ═══ Intro ═══ -->
-  <section class="intro">
-    <div class="intro-left">
-      <div class="intro-number reveal">03</div>
-      <h2 class="intro-heading reveal">
+  <section class="grid grid-cols-2 gap-16 max-w-[1400px] mx-auto px-12 py-32 items-center max-lg:grid-cols-1 max-lg:gap-12 max-lg:px-8 max-lg:py-20 max-md:px-5 max-md:py-16 max-md:gap-8">
+    <div class="relative">
+      <div class="font-display text-[12rem] font-light text-lavender-pale leading-[0.8] absolute -top-8 -left-4 z-0 select-none max-md:text-[7rem] max-md:-top-4 max-md:-left-2 reveal">03</div>
+      <h2 class="font-display text-[clamp(2rem,3.5vw,3.2rem)] font-normal leading-[1.2] relative z-1 max-md:text-[1.8rem] reveal">
         Tre unike raser,<br>
-        én felles <em>filosofi</em>
+        én felles <em class="italic text-lavender-deep">filosofi</em>
       </h2>
     </div>
-    <div class="intro-right">
-      <div class="divider reveal"></div>
-      <p class="reveal">Hos Lavender Swirl handler alt om kvalitet fremfor kvantitet. Vi fokuserer på helse, temperament og sosialisering — slik at hvert dyr som forlater oss er trygt, friskt og klar for sitt nye hjem.</p>
-      <p class="reveal">Vårt oppdrett er bygget på en dyp respekt for naturen og dyrene vi arbeider med. Vi følger strenge retningslinjer og samarbeider tett med veterinærer for å sikre de beste forholdene.</p>
+    <div>
+      <div class="w-[60px] h-px bg-lavender-soft my-8 reveal"></div>
+      <p class="text-base leading-[1.9] text-ink-light font-light max-md:text-[0.9rem] max-md:leading-[1.75] reveal">Hos Lavender Swirl handler alt om kvalitet fremfor kvantitet. Vi fokuserer på helse, temperament og sosialisering — slik at hvert dyr som forlater oss er trygt, friskt og klar for sitt nye hjem.</p>
+      <p class="text-base leading-[1.9] text-ink-light font-light mt-6 max-md:text-[0.9rem] max-md:leading-[1.75] reveal">Vårt oppdrett er bygget på en dyp respekt for naturen og dyrene vi arbeider med. Vi følger strenge retningslinjer og samarbeider tett med veterinærer for å sikre de beste forholdene.</p>
     </div>
   </section>
 
   <!-- ═══ Breeds ═══ -->
-  <section class="breeds" id="raser">
-    <div class="breeds-header">
-      <h2 class="reveal">Våre <em>raser</em></h2>
+  <section class="pt-16 pb-32 max-md:pt-12 max-md:pb-16" id="raser">
+    <div class="text-center mb-20 px-12 max-md:mb-12 max-md:px-5">
+      <h2 class="font-display text-[clamp(2.2rem,4vw,3.5rem)] font-light text-ink reveal">Våre <em class="italic text-lavender-deep">raser</em></h2>
     </div>
 
     <!-- Roborovski -->
-    <div class="breed-row">
-      <div class="breed-image reveal-scale">
-        <img src="assets/roborovski-hamster.webp" alt="Roborovski dverghamster">
+    <div class="breed-row grid grid-cols-2 min-h-[85vh] relative max-lg:grid-cols-1 max-lg:min-h-0">
+      <div class="breed-image relative overflow-hidden max-lg:h-[50vh] max-md:h-[55vw]">
+        <img src="assets/roborovski-hamster.webp" alt="Roborovski dverghamster" class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] reveal-scale">
       </div>
-      <div class="breed-info">
-        <span class="breed-label reveal">Dverghamster</span>
-        <h3 class="breed-name reveal">Roborovski<br><em>Dverghamster</em></h3>
-        <p class="breed-desc reveal">Verdens minste hamsterrase — full av energi og sjarm. Våre roborovski-hamstere er håndtamme fra ung alder og oppdratt med fokus på helse og et godt gemytt. Perfekte små følgesvenner for deg som ønsker et aktivt og fascinerende kjæledyr.</p>
-        <div class="breed-traits reveal">
-          <span class="breed-trait">Liten & aktiv</span>
-          <span class="breed-trait">Sosial</span>
-          <span class="breed-trait">Nysgjerrig</span>
-          <span class="breed-trait">Lang levetid</span>
+      <div class="breed-info flex flex-col justify-center p-20 bg-cream max-lg:p-12 max-md:px-5 max-md:py-8">
+        <span class="text-[0.7rem] tracking-[0.3em] uppercase text-lavender-mid font-medium mb-6 reveal">Dverghamster</span>
+        <h3 class="font-display text-[clamp(2.5rem,4vw,4rem)] font-light leading-[1.1] mb-8 text-ink max-md:text-[2rem] max-md:mb-5 reveal">Roborovski<br><em class="italic text-lavender-deep">Dverghamster</em></h3>
+        <p class="text-[0.95rem] leading-[1.9] text-ink-light font-light max-w-[440px] max-md:text-[0.88rem] max-md:leading-[1.75] reveal">Verdens minste hamsterrase — full av energi og sjarm. Våre roborovski-hamstere er håndtamme fra ung alder og oppdratt med fokus på helse og et godt gemytt. Perfekte små følgesvenner for deg som ønsker et aktivt og fascinerende kjæledyr.</p>
+        <div class="flex gap-6 mt-10 flex-wrap max-md:gap-2.5 max-md:mt-6 reveal">
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Liten & aktiv</span>
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Sosial</span>
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Nysgjerrig</span>
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Lang levetid</span>
         </div>
       </div>
     </div>
 
     <!-- Chinchilla -->
-    <div class="breed-row">
-      <div class="breed-image reveal-scale">
-        <img src="assets/chinchilla.webp" alt="Chinchilla">
+    <div class="breed-row grid grid-cols-2 min-h-[85vh] relative max-lg:grid-cols-1 max-lg:min-h-0">
+      <div class="breed-image relative overflow-hidden max-lg:h-[50vh] max-md:h-[55vw]">
+        <img src="assets/chinchilla.webp" alt="Chinchilla" class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] reveal-scale">
       </div>
-      <div class="breed-info">
-        <span class="breed-label reveal">Gnager</span>
-        <h3 class="breed-name reveal">Chinchilla</h3>
-        <p class="breed-desc reveal">Med sin utrolig myke pels og lekne personlighet er chinchillaen et helt spesielt kjæledyr. Våre chinchillaer vokser opp i romslige miljøer med mye stimulering, og vi legger stor vekt på genetisk mangfold og helsetesting.</p>
-        <div class="breed-traits reveal">
-          <span class="breed-trait">Myk pels</span>
-          <span class="breed-trait">Leken</span>
-          <span class="breed-trait">Intelligent</span>
-          <span class="breed-trait">15+ års levetid</span>
+      <div class="breed-info flex flex-col justify-center p-20 bg-lavender-whisper max-lg:p-12 max-md:px-5 max-md:py-8">
+        <span class="text-[0.7rem] tracking-[0.3em] uppercase text-lavender-mid font-medium mb-6 reveal">Gnager</span>
+        <h3 class="font-display text-[clamp(2.5rem,4vw,4rem)] font-light leading-[1.1] mb-8 text-ink max-md:text-[2rem] max-md:mb-5 reveal">Chinchilla</h3>
+        <p class="text-[0.95rem] leading-[1.9] text-ink-light font-light max-w-[440px] max-md:text-[0.88rem] max-md:leading-[1.75] reveal">Med sin utrolig myke pels og lekne personlighet er chinchillaen et helt spesielt kjæledyr. Våre chinchillaer vokser opp i romslige miljøer med mye stimulering, og vi legger stor vekt på genetisk mangfold og helsetesting.</p>
+        <div class="flex gap-6 mt-10 flex-wrap max-md:gap-2.5 max-md:mt-6 reveal">
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Myk pels</span>
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Leken</span>
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Intelligent</span>
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">15+ års levetid</span>
         </div>
       </div>
     </div>
 
     <!-- Bichon Frisé -->
-    <div class="breed-row">
-      <div class="breed-image reveal-scale">
-        <img src="assets/dog.webp" alt="Bichon Frisé">
+    <div class="breed-row grid grid-cols-2 min-h-[85vh] relative max-lg:grid-cols-1 max-lg:min-h-0">
+      <div class="breed-image relative overflow-hidden max-lg:h-[50vh] max-md:h-[55vw]">
+        <img src="assets/dog.webp" alt="Bichon Frisé" class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] reveal-scale">
       </div>
-      <div class="breed-info">
-        <span class="breed-label reveal">Hund</span>
-        <h3 class="breed-name reveal">Bichon<br><em>Frisé</em></h3>
-        <p class="breed-desc reveal">Den sjarmerende Bichon Frisé er kjent for sitt glade vesen og allergivennlige pels. Våre valper vokser opp i et hjemmemiljø med masse kjærlighet, tidlig sosialisering og grundig helsesjekk. En perfekt familiehund.</p>
-        <div class="breed-traits reveal">
-          <span class="breed-trait">Allergivennlig</span>
-          <span class="breed-trait">Familievennlig</span>
-          <span class="breed-trait">Glad & lojal</span>
-          <span class="breed-trait">Liten størrelse</span>
+      <div class="breed-info flex flex-col justify-center p-20 bg-cream-warm max-lg:p-12 max-md:px-5 max-md:py-8">
+        <span class="text-[0.7rem] tracking-[0.3em] uppercase text-lavender-mid font-medium mb-6 reveal">Hund</span>
+        <h3 class="font-display text-[clamp(2.5rem,4vw,4rem)] font-light leading-[1.1] mb-8 text-ink max-md:text-[2rem] max-md:mb-5 reveal">Bichon<br><em class="italic text-lavender-deep">Frisé</em></h3>
+        <p class="text-[0.95rem] leading-[1.9] text-ink-light font-light max-w-[440px] max-md:text-[0.88rem] max-md:leading-[1.75] reveal">Den sjarmerende Bichon Frisé er kjent for sitt glade vesen og allergivennlige pels. Våre valper vokser opp i et hjemmemiljø med masse kjærlighet, tidlig sosialisering og grundig helsesjekk. En perfekt familiehund.</p>
+        <div class="flex gap-6 mt-10 flex-wrap max-md:gap-2.5 max-md:mt-6 reveal">
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Allergivennlig</span>
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Familievennlig</span>
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Glad & lojal</span>
+          <span class="px-5 py-2 border border-lavender-soft rounded-full text-[0.75rem] tracking-[0.08em] text-lavender-deep uppercase max-md:px-3.5 max-md:py-1.5 max-md:text-[0.65rem]">Liten størrelse</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ Marquee ═══ -->
-  <div class="marquee">
-    <div class="marquee-track">
-      <span class="marquee-item"><em>Roborovski</em> <span class="marquee-dot"></span> Chinchilla <span class="marquee-dot"></span> <em>Bichon Frisé</em> <span class="marquee-dot"></span> Omsorg <span class="marquee-dot"></span> <em>Kvalitet</em> <span class="marquee-dot"></span> Norge <span class="marquee-dot"></span></span>
-      <span class="marquee-item"><em>Roborovski</em> <span class="marquee-dot"></span> Chinchilla <span class="marquee-dot"></span> <em>Bichon Frisé</em> <span class="marquee-dot"></span> Omsorg <span class="marquee-dot"></span> <em>Kvalitet</em> <span class="marquee-dot"></span> Norge <span class="marquee-dot"></span></span>
+  <div class="py-12 overflow-hidden border-y border-lavender-pale bg-cream max-md:py-6">
+    <div class="flex gap-12 [animation:marqueeScroll_30s_linear_infinite] w-max max-md:gap-6">
+      <span class="font-display text-[2.5rem] font-light text-lavender-soft whitespace-nowrap flex items-center gap-12 max-md:text-[1.5rem] max-md:gap-6"><em class="italic text-lavender-mid">Roborovski</em> <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span> Chinchilla <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span> <em class="italic text-lavender-mid">Bichon Frisé</em> <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span> Omsorg <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span> <em class="italic text-lavender-mid">Kvalitet</em> <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span> Norge <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span></span>
+      <span class="font-display text-[2.5rem] font-light text-lavender-soft whitespace-nowrap flex items-center gap-12 max-md:text-[1.5rem] max-md:gap-6"><em class="italic text-lavender-mid">Roborovski</em> <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span> Chinchilla <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span> <em class="italic text-lavender-mid">Bichon Frisé</em> <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span> Omsorg <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span> <em class="italic text-lavender-mid">Kvalitet</em> <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span> Norge <span class="w-1.5 h-1.5 rounded-full bg-lavender-soft shrink-0"></span></span>
     </div>
   </div>
 
   <!-- ═══ About ═══ -->
-  <section class="about" id="om-oss">
-    <div class="about-image reveal-left">
-      <img src="assets/portrait.png" alt="Grunnleggerne av Lavender Swirl">
+  <section class="grid grid-cols-[5fr_6fr] gap-24 max-w-[1400px] mx-auto px-12 py-40 items-center max-lg:grid-cols-1 max-lg:gap-12 max-lg:px-8 max-lg:py-20 max-md:px-5 max-md:py-16 max-md:gap-10" id="om-oss">
+    <div class="about-image relative reveal-left">
+      <img src="assets/portrait.png" alt="Grunnleggerne av Lavender Swirl" class="w-full h-auto block relative z-1 saturate-[0.85]">
     </div>
-    <div class="about-content">
-      <span class="about-label reveal">Om oss</span>
-      <h2 class="about-heading reveal">
-        Bygget på <em>lidenskap</em><br>
+    <div class="max-md:pr-0 max-lg:pr-0 pr-8">
+      <span class="text-[0.7rem] tracking-[0.3em] uppercase text-lavender-mid font-medium mb-8 block max-md:mb-5 reveal">Om oss</span>
+      <h2 class="font-display text-[clamp(2.2rem,3.5vw,3.2rem)] font-light leading-[1.2] mb-10 max-md:text-[1.8rem] max-md:mb-6 reveal">
+        Bygget på <em class="italic text-lavender-deep">lidenskap</em><br>
         og respekt for dyr
       </h2>
-      <div class="about-text">
+      <div class="text-[0.95rem] leading-[1.9] text-ink-light font-light max-md:text-[0.9rem] max-md:leading-[1.75]">
         <p class="reveal">Lavender Swirl ble grunnlagt av to unge dyreentusiaster med en felles drøm: å drive et oppdrett der dyrevelferd alltid kommer først. Vi bor midt i den norske naturen, omgitt av frisk luft og rolige omgivelser — det perfekte miljøet for våre dyr.</p>
-        <p class="reveal">Hvert dyr hos oss har sitt eget navn, sin egen personlighet, og får individuell oppfølging. Vi tror at et godt oppdrett handler om mer enn genetikk — det handler om kjærlighet, tålmodighet og en genuin omsorg for hvert lille liv.</p>
-        <p class="reveal">Vi er stolte medlemmer av Norsk Kennel Klub og følger alle retningslinjer for ansvarlig oppdrett. Velkommen til å bli kjent med oss og våre fantastiske dyr.</p>
+        <p class="mt-6 reveal">Hvert dyr hos oss har sitt eget navn, sin egen personlighet, og får individuell oppfølging. Vi tror at et godt oppdrett handler om mer enn genetikk — det handler om kjærlighet, tålmodighet og en genuin omsorg for hvert lille liv.</p>
+        <p class="mt-6 reveal">Vi er stolte medlemmer av Norsk Kennel Klub og følger alle retningslinjer for ansvarlig oppdrett. Velkommen til å bli kjent med oss og våre fantastiske dyr.</p>
       </div>
     </div>
   </section>
 
   <!-- ═══ Gallery ═══ -->
-  <section class="gallery" id="galleri">
-    <div class="gallery-header">
-      <h2 class="reveal">Møt våre <em>kjæledyr</em></h2>
+  <section class="gallery-section relative overflow-hidden bg-lavender-whisper px-12 pt-24 pb-40 max-md:px-5 max-md:pt-16 max-md:pb-20" id="galleri">
+    <div class="text-center mb-16 max-md:mb-10">
+      <h2 class="font-display text-[clamp(2.2rem,4vw,3.5rem)] font-light reveal">Møt våre <em class="italic text-lavender-deep">kjæledyr</em></h2>
     </div>
-    <div class="gallery-grid">
-      <div class="gallery-item tall reveal-scale">
-        <img src="assets/tito.png" alt="Tito — Bichon Frisé">
-        <div class="gallery-item-overlay">
-          <span>Tito</span>
+    <div class="grid grid-cols-3 gap-6 max-w-[1200px] mx-auto max-lg:grid-cols-2 max-md:grid-cols-2 max-md:gap-3 max-[380px]:grid-cols-1">
+      <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer max-lg:row-span-1 lg:row-span-2 lg:aspect-auto reveal-scale">
+        <img src="assets/tito.png" alt="Tito — Bichon Frisé" class="w-full h-full object-cover saturate-[0.8]">
+        <div class="gallery-item-overlay absolute bottom-0 inset-x-0 px-6 pt-8 pb-6 bg-gradient-to-t from-ink/70 to-transparent opacity-0 transition-opacity duration-500 max-md:px-4 max-md:pt-5 max-md:pb-3">
+          <span class="font-display text-[1.4rem] text-white font-normal max-md:text-base">Tito</span>
         </div>
       </div>
-      <div class="gallery-item reveal-scale">
-        <img src="assets/nibbles.png" alt="Nibbles — Roborovski hamster">
-        <div class="gallery-item-overlay">
-          <span>Nibbles</span>
+      <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-scale">
+        <img src="assets/nibbles.png" alt="Nibbles — Roborovski hamster" class="w-full h-full object-cover saturate-[0.8]">
+        <div class="gallery-item-overlay absolute bottom-0 inset-x-0 px-6 pt-8 pb-6 bg-gradient-to-t from-ink/70 to-transparent opacity-0 transition-opacity duration-500 max-md:px-4 max-md:pt-5 max-md:pb-3">
+          <span class="font-display text-[1.4rem] text-white font-normal max-md:text-base">Nibbles</span>
         </div>
       </div>
-      <div class="gallery-item reveal-scale">
-        <img src="assets/chinchilla.webp" alt="Chinchilla i lavendeleng">
-        <div class="gallery-item-overlay">
-          <span>Chinchilla</span>
+      <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-scale">
+        <img src="assets/chinchilla.webp" alt="Chinchilla i lavendeleng" class="w-full h-full object-cover saturate-[0.8]">
+        <div class="gallery-item-overlay absolute bottom-0 inset-x-0 px-6 pt-8 pb-6 bg-gradient-to-t from-ink/70 to-transparent opacity-0 transition-opacity duration-500 max-md:px-4 max-md:pt-5 max-md:pb-3">
+          <span class="font-display text-[1.4rem] text-white font-normal max-md:text-base">Chinchilla</span>
         </div>
       </div>
-      <div class="gallery-item reveal-scale">
-        <img src="assets/hænki.png" alt="Hænki">
-        <div class="gallery-item-overlay">
-          <span>Hænki</span>
+      <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-scale">
+        <img src="assets/hænki.png" alt="Hænki" class="w-full h-full object-cover saturate-[0.8]">
+        <div class="gallery-item-overlay absolute bottom-0 inset-x-0 px-6 pt-8 pb-6 bg-gradient-to-t from-ink/70 to-transparent opacity-0 transition-opacity duration-500 max-md:px-4 max-md:pt-5 max-md:pb-3">
+          <span class="font-display text-[1.4rem] text-white font-normal max-md:text-base">Hænki</span>
         </div>
       </div>
-      <div class="gallery-item reveal-scale">
-        <img src="assets/assets_task_01k1bpxtzrfj5baen83xvf0qdj_1753813610_img_1.webp" alt="Roborovski hamster">
-        <div class="gallery-item-overlay">
-          <span>Roborovski</span>
+      <div class="gallery-item group relative overflow-hidden aspect-square cursor-pointer reveal-scale">
+        <img src="assets/assets_task_01k1bpxtzrfj5baen83xvf0qdj_1753813610_img_1.webp" alt="Roborovski hamster" class="w-full h-full object-cover saturate-[0.8]">
+        <div class="gallery-item-overlay absolute bottom-0 inset-x-0 px-6 pt-8 pb-6 bg-gradient-to-t from-ink/70 to-transparent opacity-0 transition-opacity duration-500 max-md:px-4 max-md:pt-5 max-md:pb-3">
+          <span class="font-display text-[1.4rem] text-white font-normal max-md:text-base">Roborovski</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ Contact ═══ -->
-  <section class="contact" id="kontakt">
-    <div class="contact-inner">
-      <span class="contact-label reveal">Ta kontakt</span>
-      <h2 class="contact-heading reveal">
-        Interessert i å<br>bli en del av <em>familien?</em>
+  <section class="text-center relative px-12 py-40 max-lg:px-8 max-lg:py-24 max-md:px-5 max-md:py-16" id="kontakt">
+    <div class="max-w-[700px] mx-auto">
+      <span class="text-[0.7rem] tracking-[0.3em] uppercase text-lavender-mid font-medium mb-8 block reveal">Ta kontakt</span>
+      <h2 class="font-display text-[clamp(2.5rem,4vw,4rem)] font-light leading-[1.15] mb-8 max-md:text-[2rem] max-md:leading-[1.2] reveal">
+        Interessert i å<br>bli en del av <em class="italic text-lavender-deep">familien?</em>
       </h2>
-      <p class="contact-text reveal">
+      <p class="text-base text-ink-light leading-[1.8] font-light mb-12 max-md:text-[0.9rem] max-md:mb-8 reveal">
         Vi tar gjerne imot henvendelser fra potensielle nye eiere. Fortell oss litt om deg selv og hvilken rase du er interessert i, så tar vi en hyggelig prat.
       </p>
-      <a href="mailto:hei@lavenderswirl.no" class="contact-btn reveal">
-        <span>Send oss en melding</span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <a href="mailto:hei@lavenderswirl.no" class="contact-btn inline-flex items-center gap-3 px-10 py-4 bg-lavender-deep text-white no-underline text-[0.8rem] tracking-[0.15em] uppercase font-normal relative overflow-hidden transition-all duration-400 max-md:px-8 max-md:py-3.5 max-md:text-[0.7rem] reveal">
+        <span class="relative z-1">Send oss en melding</span>
+        <svg class="relative z-1 transition-transform duration-400" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 8h10M9 4l4 4-4 4"/>
         </svg>
       </a>
-      <div class="contact-details reveal">
-        <div class="contact-detail">
-          <div class="contact-detail-label">E-post</div>
-          <div class="contact-detail-value"><a href="mailto:hei@lavenderswirl.no">hei@lavenderswirl.no</a></div>
+      <div class="mt-16 flex justify-center gap-16 max-lg:flex-col max-lg:gap-8 max-md:mt-12 max-md:gap-6 reveal">
+        <div class="text-center">
+          <div class="text-[0.65rem] tracking-[0.2em] uppercase text-lavender-mid mb-2">E-post</div>
+          <div class="font-display text-[1.2rem] text-ink max-md:text-[1.05rem]"><a href="mailto:hei@lavenderswirl.no" class="text-ink no-underline border-b border-lavender-soft hover:border-lavender-deep transition-[border-color] duration-300">hei@lavenderswirl.no</a></div>
         </div>
-        <div class="contact-detail">
-          <div class="contact-detail-label">Telefon</div>
-          <div class="contact-detail-value"><a href="tel:+4798765432">+47 987 654 32</a></div>
+        <div class="text-center">
+          <div class="text-[0.65rem] tracking-[0.2em] uppercase text-lavender-mid mb-2">Telefon</div>
+          <div class="font-display text-[1.2rem] text-ink max-md:text-[1.05rem]"><a href="tel:+4798765432" class="text-ink no-underline border-b border-lavender-soft hover:border-lavender-deep transition-[border-color] duration-300">+47 987 654 32</a></div>
         </div>
-        <div class="contact-detail">
-          <div class="contact-detail-label">Sted</div>
-          <div class="contact-detail-value">Trøndelag, Norge</div>
+        <div class="text-center">
+          <div class="text-[0.65rem] tracking-[0.2em] uppercase text-lavender-mid mb-2">Sted</div>
+          <div class="font-display text-[1.2rem] text-ink max-md:text-[1.05rem]">Trøndelag, Norge</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ Footer ═══ -->
-  <footer class="footer">
-    <div class="footer-left">
+  <footer class="px-12 py-12 flex justify-between items-center border-t border-lavender-pale max-md:flex-col max-md:gap-5 max-md:text-center max-md:px-5 max-md:py-8">
+    <div class="text-[0.75rem] text-ink-light tracking-[0.05em]">
       &copy; 2026 Lavender Swirl. Alle rettigheter reservert.
     </div>
-    <div class="footer-right">
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">Personvern</a>
+    <div class="flex gap-8 max-md:gap-6">
+      <a href="#" class="text-[0.75rem] text-ink-light no-underline tracking-[0.05em] hover:text-lavender-deep transition-colors duration-300">Instagram</a>
+      <a href="#" class="text-[0.75rem] text-ink-light no-underline tracking-[0.05em] hover:text-lavender-deep transition-colors duration-300">Facebook</a>
+      <a href="#" class="text-[0.75rem] text-ink-light no-underline tracking-[0.05em] hover:text-lavender-deep transition-colors duration-300">Personvern</a>
     </div>
   </footer>
 
@@ -285,7 +303,7 @@
 
     // ── Generic reveal animations ──
     gsap.utils.toArray('.reveal').forEach((el) => {
-      if (el.closest('.hero-content')) return; // skip hero (handled above)
+      if (el.closest('.hero-content')) return;
       gsap.fromTo(el,
         { opacity: 0, y: 40 },
         {
@@ -368,20 +386,6 @@
         }
       );
     });
-
-    // ── About image frame animation ──
-    gsap.fromTo('.about-image::before',
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: '.about-image',
-          start: 'top 80%',
-          once: true
-        }
-      }
-    );
 
     // ── Gallery items stagger ──
     ScrollTrigger.batch('.gallery-item', {
