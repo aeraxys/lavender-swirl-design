@@ -78,7 +78,7 @@ body::after {
   z-index: 100;
   padding: 1.5rem 3rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -88,16 +88,26 @@ body::after {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 1rem 3rem;
+  justify-content: space-between;
   box-shadow: 0 1px 0 rgba(91, 74, 122, 0.08);
 }
 
-.navbar-logo img {
-  height: 52px;
-  transition: height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+.navbar-logo {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.navbar.scrolled .navbar-logo img {
+.navbar.scrolled .navbar-logo {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.navbar-logo img {
   height: 40px;
+  transition: height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .navbar-links {
@@ -108,13 +118,20 @@ body::after {
 
 .navbar-links a {
   text-decoration: none;
-  color: var(--ink);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.85rem;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   position: relative;
   padding-bottom: 2px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+.navbar.scrolled .navbar-links a {
+  color: var(--ink);
+  text-shadow: none;
 }
 
 .navbar-links a::after {
@@ -823,9 +840,15 @@ body::after {
   display: block;
   width: 24px;
   height: 1.5px;
-  background: var(--ink);
+  background: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: center;
+}
+
+.navbar.scrolled .menu-toggle span {
+  background: var(--ink);
+  box-shadow: none;
 }
 
 .menu-toggle span + span {
